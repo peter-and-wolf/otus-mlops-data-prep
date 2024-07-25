@@ -9,8 +9,8 @@
 7. Создадим и настроим proxy виртуальную машину для работы с DataProc.
 8. Посмотрим на ноутбуки с кодом на pySpark.
 
-Для подключения к proxy виртуальной машине
-ssh -L 8888:localhost:8888 <user>@<public ip vm>
+Для подключения к proxy виртуальной машине  
+`ssh -L 8888:localhost:8888 <user>@<public ip vm>`
 
-Для подключения к мастерноде
-ssh -i <your ssh private key> -L 8888:localhost:8888 ubuntu@<fqdn>
+Для подключения к мастерноде  
+`ssh -i <your ssh private key> -L 8888:localhost:8888 ubuntu@<fqdn>`
