@@ -1,0 +1,6 @@
+*.csv
+*.zip
+metadata.yaml
+sa-key.json
+!.gitkeep
+.vscode
