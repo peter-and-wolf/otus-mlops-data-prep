@@ -4,7 +4,7 @@
     "service_account_id": "ajefv7kmis5smc4minsj",
     "created_at": "2024-07-24T21:30:38.722414425Z",
     "description": "Static access key for bucket",
-    "key_id": "YCAJE7UhYurCT3OczS5M0QH7j"
+    "key_id": "YOUR PUBLIC ACCESS KEY"
   },
-  "secret": "YCOOnyU5sDhnylusLqTmxDlQs6Cgc6WeEwMubZ8r"
+  "secret": "<YOUR SECRET ACCESS KEY>"
 }
