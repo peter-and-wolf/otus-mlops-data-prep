@@ -2,7 +2,7 @@
 source .bashrc
 
 # Установка переменных
-YC_SA_NAME=otus
+YC_SA_NAME=otus-dataproc
 
 # Создание сервисного аккаунта
 YC_SA=$(

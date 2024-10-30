@@ -5,10 +5,15 @@ source .bashrc
 vm_name=$1
 
 # Установка переменных
+SSH_PUBLIC_KEY_PATH=/Users/peter/.ssh/yc.pub
+YC_CLUSTER=otus-dataproc-cluster
+YC_VERSION=2.0
 YC_ZONE=ru-central1-a
 YC_SUBNET_NAME=otus-dataproc-subnet
-YC_SA_NAME=otus
-YC_USER=<Указать имя пользователя>
+YC_BUCKET=otus-dataproc-bucket
+YC_SA_NAME=otus-dataproc
+YC_SECURITY_GROUP=otus-dataproc-security-group
+YC_USER=peter
 
 # Создание виртуальной машины
 log "Creating virtual machine..."
@@ -17,7 +22,7 @@ yc compute instance create \
     --name $vm_name \
     --hostname $vm_name \
     --zone ${YC_ZONE} \
-    --memory=16 \
+    --memory=2 \
     --cores=2 \
     --create-boot-disk `
         `image-folder-id=standard-images,`
@@ -31,8 +36,6 @@ yc compute instance create \
 
 log "Virtual machine created successfully!"
 
-# Ожидание завершения создания виртуальной машины
-
 # Получение публичного IP-адреса виртуальной машины
 log "Getting public IP address of the proxy VM..."
 YC_PROXY_VM_PUBLIC_IP=$(
@@ -42,5 +45,5 @@ YC_PROXY_VM_PUBLIC_IP=$(
 log "Proxy VM public IP: $YC_PROXY_VM_PUBLIC_IP"
 
 # Копирование SSH-ключа на виртуальную машину
-scp ~/.ssh/yandex_cloud $YC_USER@$YC_PROXY_VM_PUBLIC_IP:~/.ssh/dataproc
-log "INFO": "SSH private key copied to proxy VM successfully!"
+#scp -i ~/.ssh/yc ~/.ssh/yc 130.193.38.234:~/.ssh/yc
+#log "INFO": "SSH private key copied to proxy VM successfully!"

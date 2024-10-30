@@ -1,13 +1,13 @@
 #! /bin/sh
 source .bashrc
 
-SSH_PUBLIC_KEY_PATH=~/.ssh/yandex_cloud.pub
+SSH_PUBLIC_KEY_PATH=~/.ssh/yc.pub
 YC_CLUSTER=otus-dataproc-cluster
 YC_VERSION=2.0
 YC_ZONE=ru-central1-a
 YC_SUBNET_NAME=otus-dataproc-subnet
-YC_BUCKET=otus-dataproc-bucket
-YC_SA_NAME=otus
+YC_BUCKET=otus-dataproc-bkt
+YC_SA_NAME=otus-dataproc
 YC_SECURITY_GROUP=otus-dataproc-security-group
 YC_SECURITY_GROUP_ID=$(yc vpc security-group get ${YC_SECURITY_GROUP} --format json | jq -r .id)
 
