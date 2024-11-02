@@ -1,15 +1,8 @@
 #!/bin/bash
-source .bashrc
+source env.sh
 
-# Установка переменных
-YC_NETWORK_NAME=otus-dataproc-network
-YC_SUBNET_NAME=otus-dataproc-subnet
-YC_ROUTE_TABLE_NAME=otus-dataproc-route-table
-YC_NAT_GATEWAY_NAME=otus-dataproc-nat-gateway
-YC_SECURITY_GROUP_NAME=otus-dataproc-security-group
+
 YC_FOLDER_ID=$(yc config get folder-id)
-YC_ZONE=ru-central1-a
-YC_SUBNET_RANGE="10.0.0.0/24"
 
 # Создание сети
 log "Creating VPC infrastructure..."

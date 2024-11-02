@@ -1,19 +1,7 @@
 #!/bin/bash
-source .bashrc
+source env.sh
 
-# Проверка наличия аргумента
 vm_name=$1
-
-# Установка переменных
-SSH_PUBLIC_KEY_PATH=/Users/peter/.ssh/yc.pub
-YC_CLUSTER=otus-dataproc-cluster
-YC_VERSION=2.0
-YC_ZONE=ru-central1-a
-YC_SUBNET_NAME=otus-dataproc-subnet
-YC_BUCKET=otus-dataproc-bucket
-YC_SA_NAME=otus-dataproc
-YC_SECURITY_GROUP=otus-dataproc-security-group
-YC_USER=peter
 
 # Создание виртуальной машины
 log "Creating virtual machine..."
@@ -38,12 +26,9 @@ log "Virtual machine created successfully!"
 
 # Получение публичного IP-адреса виртуальной машины
 log "Getting public IP address of the proxy VM..."
-YC_PROXY_VM_PUBLIC_IP=$(
+YC_JUMP_PUBLIC_IP=$(
     yc compute instance get $vm_name \
         --format json | jq -r .network_interfaces[0].primary_v4_address.one_to_one_nat.address
 )
-log "Proxy VM public IP: $YC_PROXY_VM_PUBLIC_IP"
 
-# Копирование SSH-ключа на виртуальную машину
-#scp -i ~/.ssh/yc ~/.ssh/yc 130.193.38.234:~/.ssh/yc
-#log "INFO": "SSH private key copied to proxy VM successfully!"
+log "Proxy VM public IP: ${YC_JUMP_PUBLIC_IP}"

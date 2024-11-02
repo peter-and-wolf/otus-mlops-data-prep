@@ -1,8 +1,5 @@
 #!/bin/bash
-source .bashrc
-
-# Установка переменных
-YC_BUCKET=otus-dataproc-bkt
+source env.sh
 
 # Создание бакета
 log "Creating bucket $YC_BUCKET..."

@@ -1,8 +1,5 @@
 #!/bin/bash
-source .bashrc
-
-# Установка переменных
-YC_SA_NAME=otus-dataproc
+source env.sh
 
 # Создание сервисного аккаунта
 YC_SA=$(

@@ -1,14 +1,9 @@
 #!/bin/bash
-file_path=$1
-
-source .bashrc
-
-# Установка переменных
-YC_BUCKET=otus-dataproc-bkt
+source env.sh
 
 # Загрузка данных в бакет
 log "Uploading data to bucket..."
-s3cmd put $file_path s3://$YC_BUCKET
+s3cmd put $1 s3://$YC_BUCKET
 
 # Проверка загрузки данных
 log "Checking data in bucket..."
